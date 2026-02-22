@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLOMON | Behavioral AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* This CSS ensures visibility even if the gradient fails */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f172a !important; 
+            color: white !important; 
+        }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .gradient-text { 
+            background: linear-gradient(90deg, #38bdf8, #818cf8); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            /* If the gradient fails, this color shows up so the text isn't invisible */
+            color: #38bdf8; 
+        }
+    </style>
+</head>
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <img src="Image_20260222130025_542_3.png" alt="Company Logo" class="h-10 w-auto">
+        <div class="space-x-8 text-sm font-medium text-gray-400">
+            <a href="#about" class="hover:text-white transition">Approach</a>
+            <a href="#algorithm" class="hover:text-white transition">The Tech</a>
+            <a href="#team" class="hover:text-white transition">Team</a>
+        </div>
+    </nav>
+
+    <header class="py-24 px-6 text-center bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1)), url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2832&auto=format&fit=crop');">
+        <h1 class="text-6xl font-extrabold mb-6 tracking-tight">Solomon: Bring Clarity in <span class="gradient-text">Chaos.</span></h1>
+        <p class="max-w-2xl mx-auto text-gray-400 text-lg">We bridge the gap between institutional-grade quantitative analysis and the retail investor journey.</p>
+    </header>
+
+    <section id="algorithm" class="max-w-7xl mx-auto py-20 px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="glass p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4">Modern Risk Assessment</h3>
+                <p class="text-gray-400 mb-6">Our core engine evaluates market volatility through dynamic metrics. It moves beyond static scores to predict portfolio vulnerabilities.</p>
+                <a href="https://colab.research.google.com/drive/1TcIGiqSo7k5w8g4nk2NYxCbXQDZDk7Eh" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-semibold transition">View Python Logic</a>
+            </div>
+
+            <div class="glass p-8 rounded-2xl border-blue-500/30">
+                <h3 class="text-2xl font-bold mb-4">Basic Quant-to-English AI Algorithm Visualizer</h3>
+                <div class="bg-black/40 p-4 rounded-lg mb-4">
+                    <label class="block text-xs uppercase text-gray-500 mb-2">Simulated Quant Input (Volatility Index)</label>
+                    <input type="range" id="quantSlider" min="0" max="100" value="75" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                </div>
+                <div class="p-4 rounded-lg border border-white/10">
+                    <p id="englishOutput" class="text-blue-400 font-medium italic">"Analysis: High volatility detected. Emotional bias risk is elevated. Recommendation: Increase stop-loss buffers."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="max-w-4xl mx-auto py-20 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-12">The Minds Behind the Engine</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass p-6 rounded-xl">
+                <h4 class="text-xl font-bold">Daniel Shim</h4>
+                <p class="text-blue-400 text-sm mb-2">Quantitative Lead</p>
+                <p class="text-gray-500 text-xs">Choate Rosemary Hall</p>
+            </div>
+            <div class="glass p-6 rounded-xl">
+                <h4 class="text-xl font-bold">Connor Bao</h4>
+                <p class="text-blue-400 text-sm mb-2">Strategic Development</p>
+                <p class="text-gray-500 text-xs">Choate Rosemary Hall</p>
+            </div>
+            <div class="glass p-6 rounded-xl">
+                <h4 class="text-xl font-bold">Alessandro Valenti</h4>
+                <p class="text-blue-400 text-sm mb-2">Operations Manager</p>
+                <p class="text-gray-500 text-xs">Choate Rosemary Hall</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/5 text-center text-gray-600 text-xs">
+        <p>&copy; 2024 Behavioral Navigator. All rights reserved.</p>
+    </footer>
+
+<script>
+    /**
+     * SOLOMON PROPRIETARY INFERENCE ENGINE (v1.0)
+     * Translates multi-factor quant data into behavioral directives.
+     */
+    const slider = document.getElementById('quantSlider');
+    const output = document.getElementById('englishOutput');
+
+    const behavioralEngine = (inputVal) => {
+        // Step 1: Normalize Raw Quant Inputs (Simulating VIX, RSI, and Sentiment)
+        const volatility = inputVal; 
+        const sentimentBias = Math.max(0, 100 - (inputVal * 1.2)); // Inverse relationship
+        const momentum = inputVal > 50 ? "Overbought" : "Neutral";
+
+        // Step 2: The "Quant-to-English" Logic Matrix
+        const results = {
+            directive: "",
+            color: ""
+        };
+
+        if (volatility > 85) {
+            results.directive = "CRITICAL: Extreme Volatility detected. Algorithmic 'Noise' is at peak levels. SYSTEM ACTION: Lock Portfolio View. Our model suggests high probability of 'Panic Selling' bias. Do not engage with market for 4 hours.";
+            results.color = "#f87171"; // Red
+        } 
+        else if (volatility > 65) {
+            results.directive = "CAUTION: Elevated risk detected. Momentum is " + momentum + ". BEHAVIORAL RISK: FOMO (Fear of Missing Out) is statistically likely. SYSTEM ACTION: Enable 'Trade Delay' (15-minute cool down) to mitigate emotional impulsivity.";
+            results.color = "#fbbf24"; // Amber
+        } 
+        else if (volatility > 35) {
+            results.directive = "OPTIMAL: Market conditions aligned with Quant Profile. Momentum is Stable. BEHAVIORAL RISK: Low. SYSTEM ACTION: Proceed with planned DCA (Dollar Cost Averaging). Probability of rational execution is 94%.";
+            results.color = "#34d399"; // Green
+        } 
+        else {
+            results.directive = "STAGNANT: Low liquidity alert. Spreads are widening. BEHAVIORAL RISK: Boredom-induced overtrading. SYSTEM ACTION: Analysis suggests no high-probability setups. Suggestion: Close terminal and review educational modules.";
+            results.color = "#60a5fa"; // Blue
+        }
+
+        return results;
+    };
+
+    // UI Update Listener
+    slider.oninput = function() {
+        const result = behavioralEngine(this.value);
+        
+        // Update the text with the sophisticated directive
+        output.innerHTML = result.directive;
+        
+        // Dynamically change the text color based on the risk state
+        output.style.color = result.color;
+
+        // Visual "Engine Processing" effect
+        output.style.opacity = "0.5";
+        setTimeout(() => { output.style.opacity = "1"; }, 100);
+    };
+</script>
+</body>
+</html>

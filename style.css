@@ -1,0 +1,33 @@
+/* Custom styles for SOLOMON */
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: #0f172a; 
+    color: white; 
+}
+
+/* Glassmorphism Effect */
+.glass { 
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* High-end Gradient Text */
+.gradient-text { 
+    background: linear-gradient(90deg, #38bdf8, #818cf8); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for older browsers */
+}
+
+/* Custom transitions for interactive elements */
+a {
+    transition: all 0.3s ease;
+}
+
+/* Scroll behavior for a smoother UI */
+html {
+    scroll-behavior: smooth;
+}
